@@ -20,3 +20,28 @@ function populateBoard(size) {
 populateBoard(16)
 
 
+function changeSize(input) {
+   if (input >= 2 && input < 100) {
+      populateBoard(input)
+   } else {
+      console.log("Too many squares");
+   }
+}
+
+function colorSquare() {
+   if (color === 'random') {
+      this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
+   } else {
+      this.style.backgroundColor = color
+   }
+}
+
+function changeColor(choice) {
+   color = choice
+}
+
+function resetBoard() {
+   let board = document.querySelector('.board');
+   let squares = board.querySelectorAll('div');
+   squares.forEach((div) => div.style.backgroundColor = 'white');
+}
