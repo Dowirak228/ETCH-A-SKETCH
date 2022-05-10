@@ -11,10 +11,12 @@ function populateBoard(size) {
 
    let amount = size * size
    for (let i = 0; i < amount; i++) {
-   let square = document.createElement('div')
-   square.addEventListener("mouseover", colorSquare);
-   square.style.backgroundColor = 'white'
-   board.insertAdjacentElement("beforeend", square)
+      let square = document.createElement('div')
+      square.addEventListener("mouseover", colorSquare);
+      square.style.backgroundColor = 'white'
+      board.insertAdjacentElement("beforeend", square)
+
+      document.querySelector('.error').style.display = "none"
    }
 }
 
@@ -23,8 +25,10 @@ populateBoard(16)
 
 function changeSize(input) {
    if (input >= 2 && input < 100) {
+      document.querySelector('.error').style.display = "none"
       populateBoard(input)
    } else {
+      document.querySelector('.error').style.display = "block"
       console.log("Too many squares");
    }
 }
